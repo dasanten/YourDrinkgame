@@ -1,0 +1,2 @@
+rootProject.name='Your Drinkgame'
+include ':app'
