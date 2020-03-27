@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menu">
+
+    <fragment
+        android:id="@+id/menu"
+        android:name="de.dasanten.yourdrinkgame.Menu"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menu_to_playerAdding"
+            app:destination="@id/playerAdding"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerAdding"
+        android:name="de.dasanten.yourdrinkgame.PlayerAdding"
+        android:label="fragment_player_adding"
+        tools:layout="@layout/fragment_player_adding" >
+        <action
+            android:id="@+id/action_playerAdding_to_cardDisplay"
+            app:destination="@id/cardDisplay"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDisplay"
+        android:name="de.dasanten.yourdrinkgame.CardDisplay"
+        android:label="fragment_card_display"
+        tools:layout="@layout/fragment_card_display">
+
+        <argument
+            android:name="player"
+            app:argType="java.util.ArrayList" />
+        <argument
+            android:name="cards"
+            android:defaultValue="none"
+            />
+        <action
+            android:id="@+id/action_cardDisplay_self"
+            app:destination="@id/cardDisplay" />
+
+
+    </fragment>
+
+</navigation>

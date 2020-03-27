@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">Your Drinkgame</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="back">zurück</string>
+    <string name="feedback">Feedback</string>
+    <string name="options">optionen</string>
+    <string name="cardSets">Kartensets</string>
+
+    <string name="start_button">Start</string>
+
+    <string name="name_input">Name</string>
+    <string name="add_player">Spieler hinzufügen</string>
+    <string name="start_game">Spiel starten</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
