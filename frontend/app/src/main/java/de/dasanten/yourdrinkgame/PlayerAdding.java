@@ -65,7 +65,7 @@ public class PlayerAdding extends Fragment implements View.OnClickListener {
                     bundle.putStringArrayList("player", name);
                     navController.navigate(R.id.action_playerAdding_to_cardDisplay, bundle);
                 }else {
-                    Toast.makeText(getActivity(), "Enter a name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Geb einen Namen ein" , Toast.LENGTH_SHORT).show();
                 }
 
                 break;
