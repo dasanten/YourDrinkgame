@@ -68,10 +68,18 @@ public class CardDisplay extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        String settedCard = "";
         if (cards.getCards().size() != 0) {
-            double rdm = (Math.random()) * cards.getCards().size();
-            displayedString.setText(cards.getStringForCardDisplay((cards.getCards().get((int) rdm)), player));
-            cards.getCards().remove((int) rdm);
+            do {
+                if (cards.getCards().size() != 0) {
+                    double rdm = (Math.random()) * cards.getCards().size();
+                    settedCard = cards.getStringForCardDisplay((cards.getCards().get((int) rdm)), player);
+                    cards.getCards().remove((int) rdm);
+                } else {
+                    navController.navigate(R.id.action_cardDisplay_to_menu);
+                }
+            }while (settedCard == null);
+            displayedString.setText(settedCard);
         } else {
             navController.navigate(R.id.action_cardDisplay_to_menu);
         }
