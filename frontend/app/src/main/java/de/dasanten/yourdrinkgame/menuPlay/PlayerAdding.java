@@ -1,4 +1,4 @@
-package de.dasanten.yourdrinkgame;
+package de.dasanten.yourdrinkgame.menuPlay;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -22,6 +22,8 @@ import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.ArrayList;
+
+import de.dasanten.yourdrinkgame.R;
 
 
 /**

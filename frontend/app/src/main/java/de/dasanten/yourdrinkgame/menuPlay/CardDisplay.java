@@ -1,4 +1,4 @@
-package de.dasanten.yourdrinkgame;
+package de.dasanten.yourdrinkgame.menuPlay;
 
 import android.os.Bundle;
 
@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import de.dasanten.yourdrinkgame.R;
 
 
 /**

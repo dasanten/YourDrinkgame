@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModel;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -39,6 +40,9 @@ public class Menu extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
         view.findViewById(R.id.start_button).setOnClickListener(this);
+        view.findViewById(R.id.card_sets_button).setOnClickListener(this);
+        view.findViewById(R.id.feedback).setOnClickListener(this);
+        view.findViewById(R.id.options).setOnClickListener(this);
     }
 
     @Override
@@ -46,8 +50,10 @@ public class Menu extends Fragment implements View.OnClickListener {
         switch (view.getId()){
             case  R.id.start_button:
                 navController.navigate(R.id.action_menu_to_playerAdding);
-            break;
-
+                break;
+            case  R.id.card_sets_button:
+                navController.navigate(R.id.action_menu_to_cardSetList);
+                break;
         }
     }
 }

@@ -1,4 +1,4 @@
-package de.dasanten.yourdrinkgame;
+package de.dasanten.yourdrinkgame.menuPlay;
 
 import java.util.ArrayList;
 
@@ -21,7 +21,7 @@ public class Cards {
     public String getStringForCardDisplay(String card, ArrayList<String> player){
         String cardForDisplay = "";
         ArrayList<String> playerCopy = new ArrayList<>(player);
-        card +=" ";         //if deleted bug if last char is "#"
+        card +="";         //if deleted bug if last char is "#"
         String[] splittedCard = card.split("#");
         if (playerCopy.size() >= (splittedCard.length-1)){
             for (int i = 0; i < (splittedCard.length); i++) {
