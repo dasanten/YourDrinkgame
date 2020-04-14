@@ -16,6 +16,9 @@
     <string name="private_card_sets">Privat</string>
     <string name="workshop_card_sets">Workshop</string>
 
+    <string name="create_card_set_confirm">Erstellen</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -3,10 +3,12 @@ package de.dasanten.yourdrinkgame.localDataBase.entitys;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "cardSet")
+@Entity(tableName = "card_set")
 public class CardSetEntity {
+
     @PrimaryKey(autoGenerate = true)
-    private String cardSetId;
+    private int cardSetId;
+
     private String name;
     private String type;
     private int version;
@@ -14,12 +16,33 @@ public class CardSetEntity {
     private String editorToken;
     private boolean isAdmin;
     private boolean isUploaded;
+    private boolean isActiv;
 
-    public String getCardSetId() {
+
+    public CardSetEntity(String name, String type, int version, String adminToken, String editorToken, boolean isAdmin, boolean isUploaded, boolean isActiv) {
+        this.name = name;
+        this.type = type;
+        this.version = version;
+        this.adminToken = adminToken;
+        this.editorToken = editorToken;
+        this.isAdmin = isAdmin;
+        this.isUploaded = isUploaded;
+        this.isActiv = isActiv;
+    }
+
+    public boolean isActiv() {
+        return isActiv;
+    }
+
+    public void setActiv(boolean activ) {
+        isActiv = activ;
+    }
+
+    public int getCardSetId() {
         return cardSetId;
     }
 
-    public void setCardSetId(String cardSetId) {
+    public void setCardSetId(int cardSetId) {
         this.cardSetId = cardSetId;
     }
 

@@ -26,10 +26,10 @@ import de.dasanten.yourdrinkgame.R;
 public class CardDisplay extends Fragment implements View.OnClickListener{
 
 
-    TextView displayedString;
-    public ArrayList<String> player = new ArrayList<>();
-    Cards cards;
-    public NavController navController = null;
+    private TextView displayedString;
+    private ArrayList<String> player = new ArrayList<>();
+    private Cards cards;
+    private NavController navController = null;
 
     public CardDisplay() {
         // Required empty public constructor

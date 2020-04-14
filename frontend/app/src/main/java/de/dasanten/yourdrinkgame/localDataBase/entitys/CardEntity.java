@@ -11,6 +11,16 @@ public class CardEntity {
     private String content;
     private String type;
     private CardSetEntity cardSetEntity;
+    private boolean isActiv;
+
+
+    public boolean isActiv() {
+        return isActiv;
+    }
+
+    public void setActiv(boolean activ) {
+        isActiv = activ;
+    }
 
     public String getCardId() {
         return cardId;

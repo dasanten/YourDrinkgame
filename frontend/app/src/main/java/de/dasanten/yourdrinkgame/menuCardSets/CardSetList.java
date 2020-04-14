@@ -29,8 +29,6 @@ import de.dasanten.yourdrinkgame.localDataBase.entitys.CardSetEntity;
 public class CardSetList extends Fragment implements View.OnClickListener {
 
 
-
-
     private CardSetRepository cardSetViewModel;
     public CardSetList() {
         // Required empty public constructor

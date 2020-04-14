@@ -60,6 +60,15 @@
         android:id="@+id/cardSetList"
         android:name="de.dasanten.yourdrinkgame.menuCardSets.CardSetList"
         android:label="fragment_card_set_list"
-        tools:layout="@layout/fragment_card_set_list" />
+        tools:layout="@layout/fragment_card_set_list" >
+        <action
+            android:id="@+id/action_cardSetList_to_createNewCardSet"
+            app:destination="@id/createNewCardSet" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewCardSet"
+        android:name="de.dasanten.yourdrinkgame.menuCardSets.CreateNewCardSet"
+        android:label="fragment_create_new_card_set"
+        tools:layout="@layout/fragment_create_new_card_set" />
 
 </navigation>

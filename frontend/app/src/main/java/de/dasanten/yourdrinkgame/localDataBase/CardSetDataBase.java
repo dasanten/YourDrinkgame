@@ -1,36 +1,59 @@
 package de.dasanten.yourdrinkgame.localDataBase;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import de.dasanten.yourdrinkgame.localDataBase.entitys.CardEntity;
 import de.dasanten.yourdrinkgame.localDataBase.entitys.CardSetEntity;
 
-@Database(entities = {CardSetEntity.class, CardEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {CardSetEntity.class}, version = 1, exportSchema = false)
 public abstract class CardSetDataBase extends RoomDatabase {
 
-    abstract public CardSetDao getCardSetDao();
-    abstract public CardDao getCardDao();
-    private static volatile CardSetDataBase INSTANCE;
-    private static final int NUMBER_OF_THREADS = 4;
-    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(1);
+    private static CardSetDataBase INSTANCE;
 
-    static CardSetDataBase getDatabase(final Context context){
-        if (INSTANCE == null){
-            synchronized (CardSetDataBase.class){
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            CardSetDataBase.class, "cardset_database")
-                            .build();
-                }
-            }
+    public abstract CardSetDao getCardSetDao();
+//    public abstract CardDao getCardDao();
+
+
+    static synchronized CardSetDataBase getDatabase(Context context){
+        if (INSTANCE == null) {
+            INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                    CardSetDataBase.class, "cardset_database")
+//                    .fallbackToDestructiveMigration()
+//                    .addCallback(roomCallback)
+                    .build();
         }
     return INSTANCE;
+    }
+
+    private static RoomDatabase.Callback roomCallback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            new PopulateDBAsyncTask(INSTANCE).execute();
+        }
+    };
+    private static class PopulateDBAsyncTask extends AsyncTask<Void, Void, Void>{
+        private CardSetDao cardSetDao;
+
+        private PopulateDBAsyncTask(CardSetDataBase dataBase){
+            cardSetDao = dataBase.getCardSetDao();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            CardSetEntity one = new CardSetEntity("test", "as", 1, "as", "as", false, true,true);
+            CardSetEntity two = new CardSetEntity("test auch", "as", 1, "as", "as", false, true,true);
+            cardSetDao.insertCardSet(one);
+            cardSetDao.insertCardSet(two);
+            return null;
+        }
     }
 }
