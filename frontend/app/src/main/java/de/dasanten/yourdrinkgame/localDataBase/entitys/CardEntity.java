@@ -1,18 +1,40 @@
 package de.dasanten.yourdrinkgame.localDataBase.entitys;
 
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "card")
+import static androidx.room.ForeignKey.CASCADE;
+
+@Entity(tableName = "card", foreignKeys = @ForeignKey(entity = CardSetEntity.class,
+        parentColumns = "localCardSetId",
+        childColumns = "card_set_id",
+        onDelete = CASCADE))
 public class CardEntity {
-    @PrimaryKey
-    private String cardId;
+
+    @PrimaryKey(autoGenerate = true)
+    private int localCardId;
+
+    private String globalId;
+
     private String content;
+
     private String type;
-    private CardSetEntity cardSetEntity;
+
+    @ColumnInfo(name = "card_set_id")
+    private int cardSetId;
+
     private boolean isActiv;
 
+
+    public CardEntity(String globalId, String content, String type, int cardSetId, boolean isActiv) {
+        this.globalId = globalId;
+        this.content = content;
+        this.type = type;
+        this.cardSetId = cardSetId;
+        this.isActiv = isActiv;
+    }
 
     public boolean isActiv() {
         return isActiv;
@@ -22,12 +44,20 @@ public class CardEntity {
         isActiv = activ;
     }
 
-    public String getCardId() {
-        return cardId;
+    public int getLocalCardId() {
+        return localCardId;
     }
 
-    public void setCardId(String cardId) {
-        this.cardId = cardId;
+    public void setLocalCardId(int localCardId) {
+        this.localCardId = localCardId;
+    }
+
+    public String getGlobalId() {
+        return globalId;
+    }
+
+    public void setGlobalId(String globalId) {
+        this.globalId = globalId;
     }
 
     public String getContent() {
@@ -46,11 +76,11 @@ public class CardEntity {
         this.type = type;
     }
 
-    public CardSetEntity getCardSetEntity() {
-        return cardSetEntity;
+    public int getCardSetId() {
+        return cardSetId;
     }
 
-    public void setCardSetEntity(CardSetEntity cardSetEntity) {
-        this.cardSetEntity = cardSetEntity;
+    public void setCardSetId(int cardSetId) {
+        this.cardSetId = cardSetId;
     }
 }

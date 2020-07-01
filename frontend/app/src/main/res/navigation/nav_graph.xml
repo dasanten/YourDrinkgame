@@ -43,10 +43,6 @@
         <argument
             android:name="player"
             app:argType="java.util.ArrayList" />
-        <argument
-            android:name="cards"
-            android:defaultValue="none"
-            />
         <action
             android:id="@+id/action_cardDisplay_self"
             app:destination="@id/cardDisplay" />
@@ -64,11 +60,40 @@
         <action
             android:id="@+id/action_cardSetList_to_createNewCardSet"
             app:destination="@id/createNewCardSet" />
+        <action
+            android:id="@+id/action_cardSetList_to_privateCardList"
+            app:destination="@id/privateCardList" />
     </fragment>
     <fragment
         android:id="@+id/createNewCardSet"
         android:name="de.dasanten.yourdrinkgame.menuCardSets.CreateNewCardSet"
         android:label="fragment_create_new_card_set"
-        tools:layout="@layout/fragment_create_new_card_set" />
+        tools:layout="@layout/fragment_create_new_card_set" >
+        <action
+            android:id="@+id/action_createNewCardSet_to_cardSetList"
+            app:destination="@id/cardSetList" />
+    </fragment>
+    <fragment
+        android:id="@+id/createNewCard"
+        android:name="de.dasanten.yourdrinkgame.menuCardSets.CreateNewCard"
+        android:label="fragment_create_new_card"
+        tools:layout="@layout/fragment_create_new_card" >
+        <action
+            android:id="@+id/action_createNewCard_to_privateCardList"
+            app:destination="@id/privateCardList" />
+    </fragment>
+    <fragment
+        android:id="@+id/privateCardList"
+        android:name="de.dasanten.yourdrinkgame.menuCardSets.PrivateCardList"
+        android:label="fragment_private_card_list"
+        tools:layout="@layout/fragment_private_card_list" >
+        <action
+            android:id="@+id/action_privateCardList_to_createNewCard"
+            app:destination="@id/createNewCard" />
+        <argument
+            android:name="cardSetId"
+            app:argType="java.util.ArrayList"
+            />
+    </fragment>
 
 </navigation>

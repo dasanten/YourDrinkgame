@@ -1,5 +1,6 @@
 package de.dasanten.yourdrinkgame.localDataBase;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -13,14 +14,14 @@ import de.dasanten.yourdrinkgame.localDataBase.entitys.CardSetEntity;
 
 @Dao
 public interface CardDao {
-    @Query("Select * from card where cardSetEntity = :cardSetEntity")
-    List<CardEntity> getCardList(CardSetEntity cardSetEntity);
+    @Query("Select * from card where card_set_id = :cardSetId")
+     LiveData<List<CardEntity>> getCardList(int cardSetId);
 
-    @Query("Select * from card where cardId = :cardId")
+    @Query("Select * from card where localCardId = :cardId")
     CardEntity getCardById(String cardId);
 
     @Insert
-    void insertCards(List<CardEntity> cardEntity);
+    void insertCards(CardEntity cardEntity);
 
     @Update
     void updateCard(CardEntity cardEntity);

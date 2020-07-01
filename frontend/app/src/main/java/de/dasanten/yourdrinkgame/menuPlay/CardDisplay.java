@@ -31,6 +31,9 @@ public class CardDisplay extends Fragment implements View.OnClickListener{
     private Cards cards;
     private NavController navController = null;
 
+    int cardsPlayed = 0;
+    int maxPlayableCards = 75;
+
     public CardDisplay() {
         // Required empty public constructor
     }
@@ -71,7 +74,7 @@ public class CardDisplay extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         String settedCard = "";
-        if (cards.getCards().size() != 0) {
+        if (cards.getCards().size() != 0 | cardsPlayed < maxPlayableCards) {
             do {
                 if (cards.getCards().size() != 0) {
                     double rdm = (Math.random()) * cards.getCards().size();
@@ -82,6 +85,7 @@ public class CardDisplay extends Fragment implements View.OnClickListener{
                 }
             }while (settedCard == null);
             displayedString.setText(settedCard);
+            cardsPlayed++;
         } else {
             navController.navigate(R.id.action_cardDisplay_to_menu);
         }

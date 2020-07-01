@@ -7,20 +7,32 @@ import androidx.room.PrimaryKey;
 public class CardSetEntity {
 
     @PrimaryKey(autoGenerate = true)
-    private int cardSetId;
+    private int localCardSetId;
+
+    private String globalCardSetId;
 
     private String name;
+
+    private String description;
+
     private String type;
+
     private int version;
+
     private String adminToken;
+
     private String editorToken;
+
     private boolean isAdmin;
+
     private boolean isUploaded;
+
     private boolean isActiv;
 
 
-    public CardSetEntity(String name, String type, int version, String adminToken, String editorToken, boolean isAdmin, boolean isUploaded, boolean isActiv) {
+    public CardSetEntity(String name, String description, String type, int version, String adminToken, String editorToken, boolean isAdmin, boolean isUploaded, boolean isActiv) {
         this.name = name;
+        this.description = description;
         this.type = type;
         this.version = version;
         this.adminToken = adminToken;
@@ -28,6 +40,7 @@ public class CardSetEntity {
         this.isAdmin = isAdmin;
         this.isUploaded = isUploaded;
         this.isActiv = isActiv;
+
     }
 
     public boolean isActiv() {
@@ -38,12 +51,20 @@ public class CardSetEntity {
         isActiv = activ;
     }
 
-    public int getCardSetId() {
-        return cardSetId;
+    public int getLocalCardSetId() {
+        return localCardSetId;
     }
 
-    public void setCardSetId(int cardSetId) {
-        this.cardSetId = cardSetId;
+    public void setLocalCardSetId(int localCardSetId) {
+        this.localCardSetId = localCardSetId;
+    }
+
+    public String getGlobalCardSetId() {
+        return globalCardSetId;
+    }
+
+    public void setGlobalCardSetId(String globalCardSetId) {
+        this.globalCardSetId = globalCardSetId;
     }
 
     public String getName() {
@@ -52,6 +73,14 @@ public class CardSetEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getType() {

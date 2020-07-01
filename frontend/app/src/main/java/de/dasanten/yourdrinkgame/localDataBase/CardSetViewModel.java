@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.dasanten.yourdrinkgame.localDataBase.entitys.CardEntity;
 import de.dasanten.yourdrinkgame.localDataBase.entitys.CardSetEntity;
 
 public class CardSetViewModel extends AndroidViewModel {
@@ -33,6 +34,15 @@ public class CardSetViewModel extends AndroidViewModel {
     public void deleteCardSet(CardSetEntity cardSetEntity) {
         cardSetRepository.deleteCardSet(cardSetEntity);
     }
+
+    public LiveData<List<CardEntity>> getCardsByCardSetId(int cardSetId){
+        return cardSetRepository.getCardsOfCardSet(cardSetId);
+    }
+
+    public void insertCard(CardEntity cardEntity){
+        cardSetRepository.insertCards(cardEntity);
+    }
+
 
     public LiveData<List<CardSetEntity>> getAllCardSets(){
         return allCardSets;

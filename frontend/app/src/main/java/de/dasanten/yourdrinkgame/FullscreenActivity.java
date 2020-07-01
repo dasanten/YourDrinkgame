@@ -40,14 +40,6 @@ public class FullscreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        cardSetViewModel = new ViewModelProvider(this).get(CardSetViewModel.class);
-        cardSetViewModel.getAllCardSets().observe(this, new Observer<List<CardSetEntity>>() {
-            @Override
-            public void onChanged(List<CardSetEntity> cardSetEntities) {
-                Toast.makeText(FullscreenActivity.this, "onChanged", Toast.LENGTH_SHORT).show();
-            }
-        });
-
         setContentView(R.layout.activity_fullscreen);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".menuCardSets.PrivateCardSets">
+    tools:context=".menuCardSets.PrivateCardList">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_of_private_cardSets"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/recyclerview_card_set_item">
+        tools:listitem="@layout/recyclerview_card_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -20,7 +19,7 @@
         android:src="@drawable/ic_add_white_24dp"
         android:layout_gravity="end|bottom"
         android:layout_margin="32dp"
-        android:id="@+id/create_new_card_set"
+        android:id="@+id/create_new_card"
         >
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>

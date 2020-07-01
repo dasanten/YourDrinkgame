@@ -23,15 +23,15 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
-            cardItemView = itemView.findViewById(R.id.card_textView);
+            cardItemView = itemView.findViewById(R.id.card_content);
         }
 
     }
 
-    private List<CardEntity> cardEntityList;
+    private List<CardEntity> cardEntityList = new ArrayList<>();
 
-    public CardAdapter(ArrayList<CardEntity> cardEntityList){
-        this.cardEntityList = cardEntityList;
+    public CardAdapter(){
+
     }
 
     public void setCardEntityList(List<CardEntity> cardEntityList) {
